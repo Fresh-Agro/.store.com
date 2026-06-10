@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Green Chili (Loose) - Fresh Agro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "success-green": "#2E7D32",
+                        "on-primary-fixed": "#002204",
+                        "tertiary-container": "#b14b6f",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7f2448",
+                        "on-secondary-fixed-variant": "#693c00",
+                        "primary-fixed": "#a3f69c",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "error": "#ba1a1a",
+                        "tertiary": "#923357",
+                        "on-tertiary-fixed": "#3f001c",
+                        "on-secondary-fixed": "#2c1600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#653900",
+                        "tertiary-fixed": "#ffd9e2",
+                        "outline-variant": "#bfcaba",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-alt": "#F5F5F5",
+                        "surface-tint": "#1b6d24",
+                        "outline": "#707a6c",
+                        "border-subtle": "#E0E0E0",
+                        "on-surface": "#1b1c1c",
+                        "inverse-primary": "#88d982",
+                        "surface-variant": "#e5e2e1",
+                        "inverse-surface": "#303030",
+                        "primary": "#0d631b",
+                        "on-primary-container": "#cbffc2",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#ff9800",
+                        "on-surface-variant": "#40493d",
+                        "tertiary-fixed-dim": "#ffb1c7",
+                        "bengali-text": "#424242",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-fixed-variant": "#005312",
+                        "primary-fixed-dim": "#88d982",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed": "#ffdcbe",
+                        "secondary-fixed-dim": "#ffb870",
+                        "background": "#fcf9f8",
+                        "on-tertiary": "#ffffff",
+                        "warning-orange": "#FF9800",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#ffedf0",
+                        "surface-container": "#f0eded",
+                        "error-container": "#ffdad6",
+                        "surface": "#fcf9f8",
+                        "secondary": "#8b5000",
+                        "surface-dim": "#dcd9d9",
+                        "on-background": "#1b1c1c",
+                        "primary-container": "#2e7d32"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-width": "1280px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl-mobile": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cart-sidebar-transition {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body {
+            background-color: #F5F5F5;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-border-subtle shadow-sm sticky top-0 z-40 h-20 flex items-center">
+<nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max-width mx-auto">
+<div class="font-headline-lg text-headline-lg font-bold text-primary">Fresh Agro</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Farms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Deals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Seasonal</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Bulk</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-lg border border-border-subtle">
+<span class="material-symbols-outlined text-primary mr-2">location_on</span>
+<span class="text-label-md font-label-md text-on-surface-variant">Dhanmondi, Dhaka</span>
+<span class="material-symbols-outlined text-on-surface-variant ml-1">expand_more</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">search</span></button>
+<button class="relative text-on-surface-variant hover:text-primary" onclick="toggleCart()">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="absolute -top-2 -right-2 bg-secondary-container text-on-secondary-container text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max-width mx-auto px-margin-desktop py-12">
+<!-- Breadcrumbs -->
+<nav class="flex gap-2 text-label-sm font-label-sm text-on-surface-variant mb-8">
+<a class="hover:text-primary" href="#">Home</a>
+<span>/</span>
+<a class="hover:text-primary" href="#">Vegetables</a>
+<span>/</span>
+<span class="text-on-surface">Green Chili (Loose)</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Product Gallery -->
+<div class="lg:col-span-6 space-y-4">
+<div class="bg-white border border-border-subtle rounded-xl overflow-hidden aspect-square flex items-center justify-center p-8">
+<img alt="Green Chili" class="w-full h-full object-contain" data-alt="A macro photograph of vibrant, fresh green chilies piled high in a rustic wicker basket. The lighting is bright and natural, highlighting the glossy, waxy skin and sharp stems of the chilies. The overall aesthetic is clean, organic, and appetizing, emphasizing a farm-to-table freshness typical of premium Bangladeshi agro-products. Subtle dewdrops on the chilies add a tactile, fresh quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOy75c_r91wLHttF6Wfcs97VFK9m7eZpdAmIKR6iZadmie0xpZEgnMTzfNpXrCqsydgjb6RLBdk5wfeALwMnGJffUBZzjyWmAS-pUdFwfOrfyf57M7jwqdIglpSPAO32QVMDqigDrL2MCQoRbhAXIvuRrtdKImVe75RACH-_Sy2FxT6LELOq8pTrecdLmWVHrjNg9kRVlmPDbaEeSL_Tx_gXQbAwx5LRiUeoIHXovZOqqIQ-6zK4tWHdnWbXurMCP5o4yHainkHmnE"/>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<button class="border-2 border-primary rounded-lg overflow-hidden bg-white aspect-square">
+<img alt="Thumbnail 1" class="w-full h-full object-cover" data-alt="A close-up shot of several bright green chilies resting on a clean, white surface. The lighting is soft and even, showcasing the vibrant green hue and smooth texture of the produce. This shot conveys a high-end, minimalist commercial feel, suitable for an e-commerce platform focused on quality and freshness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJQlPEZVGvwtgqhbTqEqfF4bdM6AQXK5f_kGxzAFDZHuqv_T0p2tFBn0uvG1K7EeyvjplWbTqXO7yYYcP61T2nZGCm6k59tqtynKIpxMViqLSXh8BWWa2-VgGkHkaSt-CptSAePVG1NLGuHBvx1JLvsMXweGqTvarGh_JRknt6jU9-SKbkkpArUPm2PhKehoNSfwOUX8cF8AR7kHQaOCsx-s-jp1X6SCNy1aqtHTsoO73jqsobaZn3XlFEUuaKj22OCE6gQedh8OEI"/>
+</button>
+<button class="border border-border-subtle rounded-lg overflow-hidden bg-white aspect-square opacity-60 hover:opacity-100 transition-opacity">
+<img alt="Thumbnail 2" class="w-full h-full object-cover" data-alt="A cluster of long green chilies held in a person's hand against a soft-focus garden background. The scene suggests direct harvesting from a farm, reinforcing the brand's 'farm-to-table' identity. The lighting is warm and golden, evoking an authentic, professional agricultural atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUPVWhGjUiBiK7UTKN_9FlcMWJf7FrlK_kRbU_C7U3UUW499XQP4sM40yAaqoOBiJg62aHB1w-n6FnkrTr-wASj2FOAaPLbYdrqJkgiW2rmWofjl2ozdRYvdj5mxGkVJbr3mKqtByLhPr8PsTbSOehIEpOGDmMyBk8o-4044AmW7W69odt-2DUqTswL9cL8b3OclqDlbExChym9zRcGi1UMDvH0nlHHyiQd1q6ZhIaSB8FmmxBk25ZyS77u7-oymn4-z_q7nlzk9AV"/>
+</button>
+</div>
+</div>
+<!-- Product Details -->
+<div class="lg:col-span-6 space-y-6">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Organic</span>
+<span class="text-success-green font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span> In Stock
+                        </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-2">Green Chili (Loose)</h1>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                        Hand-picked from the lush fields of Bogra. These chilies are known for their sharp heat and vibrant aroma. Perfect for tempering lentils, making chutneys, or adding a kick to your daily curries.
+                    </p>
+</div>
+<div class="bg-white p-6 border border-border-subtle rounded-xl space-y-6">
+<!-- Price and Weight -->
+<div>
+<div class="flex items-baseline gap-2 mb-4">
+<span class="text-headline-lg font-bold text-on-surface" id="current-price">৳ 45.00</span>
+<span class="text-on-surface-variant font-body-md" id="unit-label">/ 500g</span>
+</div>
+<label class="block font-label-md text-on-surface mb-3">Select Weight</label>
+<div class="grid grid-cols-4 gap-3">
+<button class="weight-btn border-2 border-primary bg-primary-container/10 py-3 rounded-lg text-center transition-all group active:scale-95" onclick="updateWeight(500, 45, this)">
+<span class="block font-bold text-primary">500g</span>
+<span class="text-xs text-primary/80">৳ 45</span>
+</button>
+<button class="weight-btn border border-border-subtle hover:border-primary py-3 rounded-lg text-center transition-all group active:scale-95" onclick="updateWeight(1000, 85, this)">
+<span class="block font-bold text-on-surface">1kg</span>
+<span class="text-xs text-on-surface-variant">৳ 85</span>
+</button>
+<button class="weight-btn border border-border-subtle hover:border-primary py-3 rounded-lg text-center transition-all group active:scale-95" onclick="updateWeight(2000, 160, this)">
+<span class="block font-bold text-on-surface">2kg</span>
+<span class="text-xs text-on-surface-variant">৳ 160</span>
+</button>
+<button class="weight-btn border border-border-subtle hover:border-primary py-3 rounded-lg text-center transition-all group active:scale-95" onclick="updateWeight(5000, 380, this)">
+<span class="block font-bold text-on-surface">5kg</span>
+<span class="text-xs text-on-surface-variant">৳ 380</span>
+</button>
+</div>
+</div>
+<!-- Quantity -->
+<div class="flex items-center gap-6">
+<div class="flex items-center border border-border-subtle rounded-lg overflow-hidden">
+<button class="px-4 py-2 hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">remove</span></button>
+<span class="px-4 py-2 font-bold border-x border-border-subtle">1</span>
+<button class="px-4 py-2 hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">add</span></button>
+</div>
+<button class="flex-1 bg-secondary-container hover:bg-warning-orange text-on-secondary-container font-bold py-4 rounded-lg shadow-sm transition-all active:scale-95 flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">shopping_basket</span> Add to Cart
+                        </button>
+</div>
+</div>
+<!-- Delivery Info -->
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<div>
+<p class="font-label-md text-on-surface">Express Delivery</p>
+<p class="text-xs text-on-surface-variant">Arrives in 60-90 mins</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary">verified</span>
+<div>
+<p class="font-label-md text-on-surface">Freshness Guarantee</p>
+<p class="text-xs text-on-surface-variant">Sourced this morning</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Products Section -->
+<section class="mt-24">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Frequently Bought Together</h2>
+<p class="text-on-surface-variant">Essentials to complete your kitchen pantry.</p>
+</div>
+<a class="text-primary font-label-md flex items-center gap-1 hover:underline" href="#">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-gutter">
+<!-- Product Card 1 -->
+<div class="bg-white border border-border-subtle rounded-lg overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300">
+<div class="relative aspect-square bg-surface-container-low">
+<img alt="Potato" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A collection of smooth-skinned organic potatoes piled against a clean, white background. High-key lighting creates a soft and professional look, emphasizing the clean, earth-toned skins of the potatoes. This product photography is designed to look appetizing and fresh for a high-end grocery interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2XBzHc05xRhoR3LuWOzUdLMYkGJUFg0nHrqSD3dr5h2OC1G6RaF2noSjLu1JCjlejqMqCWDPUOLBWQGCp3hx4ZQoUWzcS636r9AWO9fZNepYRuK3wxitUXOF3rjvLNAk9NY6rTIMLk7ywejbKC0SIZBovtocn-g2fBpqMdjR4Y_vHEcqyO52M4aX8npMLdpBvJcK5bqStKV6uxcwgAzqPjSnitYvccl4OFhKWdWa_OHMfhDR43ECt8O1Q6Fq5X_Y6DZ9BVUHREyec"/>
+<div class="absolute top-2 left-2">
+<span class="bg-white/90 backdrop-blur px-2 py-0.5 rounded text-[10px] font-bold text-on-surface border border-border-subtle">Top Pick</span>
+</div>
+</div>
+<div class="p-4 space-y-2">
+<h3 class="font-label-md text-on-surface line-clamp-1">Potato (Diamond)</h3>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-bold text-on-surface">৳ 50.00</p>
+<p class="text-[10px] text-on-surface-variant">per kg</p>
+</div>
+<button class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white border border-border-subtle rounded-lg overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300">
+<div class="relative aspect-square bg-surface-container-low">
+<img alt="Onion" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Fresh purple onions displayed in a clean, minimalist setting. The deep purple skin of the onions contrasts beautifully with a soft grey background. Professional studio lighting highlights the translucent layers and spherical shape, conveying a sense of premium quality and culinary readiness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmGH7Vnx-hiGvPpZENabdfGGFUxj9gvRxcD_mndub_tKJB7rNxJKOUf2uyVRb12qsu11sXYykKclno2yy4r8Cc2TE9asxQEtGbWrdoAY-hbhZcqEYA1I_spSnStw947u5WZhlK-PmZpDWjV5Kfr4QqXoBzvdgpOgorrJobD6cdGFL6Vu-YFiN3y2WwQUaHp_ZIXfSeIp5tNrG_21FlLnVTP6A6lZ7NFX2Tu-NgiTz38O-UWtfD7hKaV7ZAtzBvUM0-uE75oE7l3sRB"/>
+</div>
+<div class="p-4 space-y-2">
+<h3 class="font-label-md text-on-surface line-clamp-1">Onion (Imported)</h3>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-bold text-on-surface">৳ 120.00</p>
+<p class="text-[10px] text-on-surface-variant">per kg</p>
+</div>
+<button class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white border border-border-subtle rounded-lg overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300">
+<div class="relative aspect-square bg-surface-container-low">
+<img alt="Garlic" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Close up of fresh garlic bulbs with papery white skins and purple accents. The photography is sharp, with a shallow depth of field that emphasizes the texture of the garlic. The lighting is crisp and bright, reinforcing the 'fresh' and 'premium' agro-market theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ2PihFZI5hjjdapzr3qFhdyiI7DZvU5E-FLh3YxOEQ4G-NINzVH3mFxKy2QMc0K359yizEJH_5OOvEbz0OhsKKYE_OV0AYSXE8EFCV5xX1-Hk6crgxY_hP41X2tuiUPFUdLW56bqQKKkv2ZQAUEfRWagSEjkd5MMQA7I3MnWyJnp4_yl8i7w7kMMX1FZLWh1p8CgNR1O5rZHVhGD6_1OoxtCHlo92WkWgXX1K8VNDmjOK3AjW6GmkBkFQ37PUOE3UP52x7rgewrby"/>
+</div>
+<div class="p-4 space-y-2">
+<h3 class="font-label-md text-on-surface line-clamp-1">Garlic (Local)</h3>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-bold text-on-surface">৳ 240.00</p>
+<p class="text-[10px] text-on-surface-variant">per 500g</p>
+</div>
+<button class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white border border-border-subtle rounded-lg overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300">
+<div class="relative aspect-square bg-surface-container-low">
+<img alt="Carrot" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A bunch of bright, organic carrots with their green tops still attached, lying on a wooden kitchen surface. The natural, rustic lighting highlights the vibrant orange color and earthy texture. This image emphasizes wholesome, unprocessed produce straight from the farm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC34r196vTI5b1NvmXenNV-tOSVOOzWxJ9KyP6S4hSuP-PyFkp1mIRQr7fqse8OI8xMU5T245ZPSmP699yizpV-9VDmUYSp5vuqhVBVwndfQQ43kyvWoKFPjatfFST_VQ_wVt9AWRCGrAsSSd3VCHTQ_RihQ7zR2SzJnloSFXqwj8VIQyUAyjBSkkZwCdDDFG04mc5Kzts20W-Tin7aaS_Sqen-IoS4j5J2Vv_ZdwZO7PYLsco6j2NGZxo54W97rCX1AsSye_jhGr0R"/>
+</div>
+<div class="p-4 space-y-2">
+<h3 class="font-label-md text-on-surface line-clamp-1">Carrot (Deshi)</h3>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-bold text-on-surface">৳ 65.00</p>
+<p class="text-[10px] text-on-surface-variant">per 500g</p>
+</div>
+<button class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Mini-Cart Sidebar -->
+<div class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300" id="cart-overlay" onclick="toggleCart()"></div>
+<aside class="fixed top-0 right-0 h-full w-80 md:w-96 bg-surface z-50 translate-x-full cart-sidebar-transition border-l border-border-subtle flex flex-col" id="cart-sidebar">
+<div class="p-6 border-b border-border-subtle flex justify-between items-center bg-surface-container">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Your Basket</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant">2 Items in cart</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary" onclick="toggleCart()"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- Cart Item -->
+<div class="flex gap-4 p-2 bg-white border border-border-subtle rounded-lg">
+<div class="w-16 h-16 rounded overflow-hidden flex-shrink-0 bg-surface-container-low">
+<img alt="Cart item 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsL7XKvrjkQTEvKZe5DkW8SvVLiViXyZ6fXSTcSKxZezjiyZSf928MA3ZyyUbZe2A0jl7DPIZf0HpTUJa-rF609lkUJe4DwdKhpSJkn8aARzmvDxM-FfhRn6xv5Ap9ZW5a3K5rlIZ2xawozk9hyC16EVnuXSymJAdWAVfZpcUpy1_4fcSzppjzox2N0wK7LjAgrqzHTDMGDo_Lk_oeVYvUleBR-LTZSPVcWj11Nl4ohduaBi3CP6zyAi2_Iy4tE8eBKrqYDjfe6glO"/>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-on-surface">Potato (Diamond)</h4>
+<p class="text-xs text-on-surface-variant mb-2">1kg</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center border border-border-subtle rounded text-xs">
+<button class="px-2 py-1"><span class="material-symbols-outlined text-xs">remove</span></button>
+<span class="px-2 py-1 font-bold">1</span>
+<button class="px-2 py-1"><span class="material-symbols-outlined text-xs">add</span></button>
+</div>
+<span class="font-bold text-on-surface">৳ 50.00</span>
+</div>
+</div>
+</div>
+<!-- Cart Item -->
+<div class="flex gap-4 p-2 bg-white border border-border-subtle rounded-lg">
+<div class="w-16 h-16 rounded overflow-hidden flex-shrink-0 bg-surface-container-low">
+<img alt="Cart item 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJy0rMH0FCA4ZM9iZOyq5kcku83P7KuOUxVn5NxKLGnn3QIN9wlsWve3jkXiAyfO8XXQSYtUtx75-CnUZ9RW4pl1lRtneR0qDjgO7Apyhktv5bdcq_My4zha1JH35fGAjF9iaUStA4MNVSOAN4d1hKnUrLtTPj6e2mLQt4NF1v_ONFbVWoYb6yEH7uW8w5TvA0b55hBXTd8N6ztanqpBIFDN2J8rOJBGpH-BVGOOQuQSW-va3MP6LttIaGMc7jw9dFxnBUHS4t5uDN"/>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-on-surface">Onion (Imported)</h4>
+<p class="text-xs text-on-surface-variant mb-2">500g</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center border border-border-subtle rounded text-xs">
+<button class="px-2 py-1"><span class="material-symbols-outlined text-xs">remove</span></button>
+<span class="px-2 py-1 font-bold">1</span>
+<button class="px-2 py-1"><span class="material-symbols-outlined text-xs">add</span></button>
+</div>
+<span class="font-bold text-on-surface">৳ 60.00</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-border-subtle space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between text-label-md">
+<span class="text-on-surface-variant">Subtotal</span>
+<span class="text-on-surface">৳ 110.00</span>
+</div>
+<div class="flex justify-between text-label-md">
+<span class="text-on-surface-variant">Delivery Fee</span>
+<span class="text-on-surface">৳ 30.00</span>
+</div>
+<div class="flex justify-between font-bold text-headline-md border-t border-border-subtle pt-2">
+<span class="text-on-surface">Total</span>
+<span class="text-primary">৳ 140.00</span>
+</div>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold py-4 rounded-lg hover:bg-warning-orange transition-all shadow-md">Checkout Now</button>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-border-subtle py-12 px-margin-desktop mt-24">
+<div class="max-w-container-max-width mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1 space-y-4">
+<div class="font-headline-md text-headline-md font-bold text-primary">Fresh Agro</div>
+<p class="text-on-surface-variant text-body-md">Empowering local farmers, nourishing communities through the best quality agro products.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface">Quick Links</h4>
+<ul class="space-y-2">
+<li><a class="text-label-sm text-on-surface-variant hover:text-primary hover:underline" href="#">Support Center</a></li>
+<li><a class="text-label-sm text-on-surface-variant hover:text-primary hover:underline" href="#">Refund Policy</a></li>
+<li><a class="text-label-sm text-on-surface-variant hover:text-primary hover:underline" href="#">Delivery Info</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface">Company</h4>
+<ul class="space-y-2">
+<li><a class="text-label-sm text-on-surface-variant hover:text-primary hover:underline" href="#">Privacy Policy</a></li>
+<li><a class="text-label-sm text-on-surface-variant hover:text-primary hover:underline" href="#">Become a Partner</a></li>
+<li><a class="text-label-sm text-on-surface-variant hover:text-primary hover:underline" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface">Newsletter</h4>
+<p class="text-xs text-on-surface-variant">Get fresh news and deals daily.</p>
+<div class="flex gap-2">
+<input class="flex-1 border border-border-subtle rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary" placeholder="Your email" type="email"/>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max-width mx-auto mt-12 pt-8 border-t border-border-subtle text-center text-label-sm text-on-surface-variant">
+            © 2024 Fresh Agro. All rights reserved.
+        </div>
+</footer>
+<script>
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('cart-overlay');
+            const isOpen = sidebar.classList.contains('translate-x-0');
+
+            if (isOpen) {
+                sidebar.classList.remove('translate-x-0');
+                sidebar.classList.add('translate-x-full');
+                overlay.classList.add('pointer-events-none');
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0');
+            } else {
+                sidebar.classList.remove('translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('pointer-events-none');
+                overlay.classList.remove('opacity-0');
+                overlay.classList.add('opacity-100');
+            }
+        }
+
+        function updateWeight(weight, price, btn) {
+            // Update labels
+            const displayWeight = weight >= 1000 ? (weight / 1000) + 'kg' : weight + 'g';
+            document.getElementById('current-price').innerText = '৳ ' + price.toFixed(2);
+            document.getElementById('unit-label').innerText = '/ ' + displayWeight;
+
+            // Handle button states
+            document.querySelectorAll('.weight-btn').forEach(b => {
+                b.classList.remove('border-primary', 'bg-primary-container/10');
+                b.classList.add('border-border-subtle');
+                b.querySelector('.block').classList.remove('text-primary');
+                b.querySelector('.block').classList.add('text-on-surface');
+                b.querySelector('.text-xs').classList.remove('text-primary/80');
+                b.querySelector('.text-xs').classList.add('text-on-surface-variant');
+            });
+
+            btn.classList.add('border-primary', 'bg-primary-container/10');
+            btn.classList.remove('border-border-subtle');
+            btn.querySelector('.block').classList.add('text-primary');
+            btn.querySelector('.block').classList.remove('text-on-surface');
+            btn.querySelector('.text-xs').classList.add('text-primary/80');
+            btn.querySelector('.text-xs').classList.remove('text-on-surface-variant');
+        }
+    </script>
+</body></html>

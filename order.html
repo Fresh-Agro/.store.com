@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Tracking | Fresh Agro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "success-green": "#2E7D32",
+                      "on-primary-fixed": "#002204",
+                      "tertiary-container": "#b14b6f",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#7f2448",
+                      "on-secondary-fixed-variant": "#693c00",
+                      "primary-fixed": "#a3f69c",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f3f0ef",
+                      "error": "#ba1a1a",
+                      "tertiary": "#923357",
+                      "on-tertiary-fixed": "#3f001c",
+                      "on-secondary-fixed": "#2c1600",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#653900",
+                      "tertiary-fixed": "#ffd9e2",
+                      "outline-variant": "#bfcaba",
+                      "surface-container-highest": "#e5e2e1",
+                      "surface-alt": "#F5F5F5",
+                      "surface-tint": "#1b6d24",
+                      "outline": "#707a6c",
+                      "border-subtle": "#E0E0E0",
+                      "on-surface": "#1b1c1c",
+                      "inverse-primary": "#88d982",
+                      "surface-variant": "#e5e2e1",
+                      "inverse-surface": "#303030",
+                      "primary": "#0d631b",
+                      "on-primary-container": "#cbffc2",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#ff9800",
+                      "on-surface-variant": "#40493d",
+                      "tertiary-fixed-dim": "#ffb1c7",
+                      "bengali-text": "#424242",
+                      "surface-container-high": "#eae7e7",
+                      "on-primary-fixed-variant": "#005312",
+                      "primary-fixed-dim": "#88d982",
+                      "surface-container-low": "#f6f3f2",
+                      "secondary-fixed": "#ffdcbe",
+                      "secondary-fixed-dim": "#ffb870",
+                      "background": "#fcf9f8",
+                      "on-tertiary": "#ffffff",
+                      "warning-orange": "#FF9800",
+                      "surface-bright": "#fcf9f8",
+                      "on-tertiary-container": "#ffedf0",
+                      "surface-container": "#f0eded",
+                      "error-container": "#ffdad6",
+                      "surface": "#fcf9f8",
+                      "secondary": "#8b5000",
+                      "surface-dim": "#dcd9d9",
+                      "on-background": "#1b1c1c",
+                      "primary-container": "#2e7d32"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max-width": "1280px",
+                      "margin-desktop": "32px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "headline-xl": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-xl-mobile": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .step-active::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 4px;
+            background: #2e7d32;
+            z-index: -1;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(.33); opacity: 1; }
+            80%, 100% { transform: scale(1.5); opacity: 0; }
+        }
+        .pulse-marker {
+            position: relative;
+        }
+        .pulse-marker::before {
+            content: '';
+            position: absolute;
+            left: -8px; top: -8px;
+            width: 32px; height: 32px;
+            background: #2e7d32;
+            border-radius: 50%;
+            animation: pulse-ring 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+    </style>
+</head>
+<body class="bg-surface-alt font-body-md text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-border-subtle shadow-sm sticky top-0 z-40 h-20">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max-width mx-auto h-full">
+<div class="font-headline-lg text-headline-lg font-bold text-primary">Fresh Agro</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Farms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Deals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Seasonal</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Bulk</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<span class="font-label-md text-label-md">Dhanmondi, Dhaka</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">shopping_basket</span>
+<span class="material-symbols-outlined cursor-pointer text-primary" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max-width mx-auto px-margin-desktop py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Panel: My Orders List -->
+<section class="lg:col-span-4 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">My Orders</h1>
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-label-sm font-label-sm">8 Orders</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Active Order Item -->
+<div class="bg-surface border-2 border-primary rounded-xl p-4 shadow-sm relative overflow-hidden group cursor-pointer transition-all hover:bg-surface-container-low">
+<div class="absolute top-0 right-0 bg-primary text-white text-[10px] px-3 py-0.5 font-bold uppercase tracking-wider">Active</div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-label-sm text-on-surface-variant">Order #FA-88219</p>
+<p class="font-headline-md text-headline-md text-on-surface">৳ 1,450.00</p>
+</div>
+<span class="text-success-green font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                                Out for Delivery
+                            </span>
+</div>
+<p class="text-label-sm text-on-surface-variant mt-2">12 Items • Expected by 2:45 PM</p>
+</div>
+<!-- Past Order Item -->
+<div class="bg-surface border border-border-subtle rounded-xl p-4 cursor-pointer hover:border-primary-fixed-dim transition-all">
+<div class="flex justify-between items-start mb-1">
+<div>
+<p class="text-label-sm text-on-surface-variant font-medium">Order #FA-87102</p>
+<p class="font-headline-md text-headline-md text-on-surface">৳ 2,120.00</p>
+</div>
+<span class="text-on-surface-variant font-label-sm bg-surface-container-highest px-2 py-1 rounded">Delivered</span>
+</div>
+<div class="flex items-center gap-2 mt-3">
+<div class="w-8 h-8 rounded-lg bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up macro shot of vibrant green organic vegetables arranged neatly on a wooden surface, soft natural lighting highlighting the fresh textures for a high-end agro-commerce brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4io95iJbgRPol-m9m3-S3Ge60_cbSIVNwMqtT0XFq3xZXeuEEA_Gxv4rGs_3XUN3RNRXSDYWuIIULsmQE4dEmXlPzYK3lpIhsNMRwwYpJN4_Hffa7j16SD2MjEibpsoraTw0HNj3qxeG6ioBuZVYfOtCHfdk9zaS_6jjiYb_LL-LsiI-aVv4CjbCokQqiM49rT1N_Fh1352kxs4xesjnADDhHNO3ggnKD1BQphi26YKHUOp-x0n1oyhu1PJryZ4ai04PuzhOk6dwj"/>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Freshly harvested organic red tomatoes with green stems displayed in a rustic basket, warm golden hour sunlight creating a farm-to-table atmosphere with a clean and professional photographic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLfHvtWYntKlg2UkwT2pXn9KnaXgO1GIvFHAHKu54P0nkIxhPXqcYVsDIxi1-fTP3Hpf56jROpShzA2aFbu5M03OfCWhWhUCeP2Ui9YCCO_5DLu5cV8OV3St53w-pNImIxX-BkahCxFWhkNU67VnC-3wnO0XwpTYyxf6zxoOs3X7xPtpbCjQ_AwVsYkLEZAI1aB_HMu8GTDGmnb9d4U2tmqXhJKSRDChuJr4gBE1TyRccOqho-bF7F1h68OJS0AlyjfwPlNn-yTlpn"/>
+</div>
+<span class="text-label-sm text-on-surface-variant">+6 more</span>
+</div>
+</div>
+<!-- Past Order Item 2 -->
+<div class="bg-surface border border-border-subtle rounded-xl p-4 cursor-pointer hover:border-primary-fixed-dim transition-all">
+<div class="flex justify-between items-start mb-1">
+<div>
+<p class="text-label-sm text-on-surface-variant font-medium">Order #FA-86994</p>
+<p class="font-headline-md text-headline-md text-on-surface">৳ 890.00</p>
+</div>
+<span class="text-on-surface-variant font-label-sm bg-surface-container-highest px-2 py-1 rounded">Delivered</span>
+</div>
+<p class="text-label-sm text-on-surface-variant mt-2 italic">March 14, 2024</p>
+</div>
+</div>
+</section>
+<!-- Right Panel: Live Tracking & Details -->
+<section class="lg:col-span-8 flex flex-col gap-6">
+<!-- Tracking Header Card -->
+<div class="bg-surface border border-border-subtle rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 bg-primary-container text-on-primary-container flex justify-between items-center">
+<div>
+<h2 class="font-headline-lg text-headline-lg">Live Tracking</h2>
+<p class="font-label-md">Arriving in approx. <span class="font-bold">12 minutes</span></p>
+</div>
+<div class="text-right">
+<p class="text-label-sm opacity-90">Order #FA-88219</p>
+<p class="font-bold">Out for Delivery</p>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="px-8 py-10 bg-surface">
+<div class="relative flex justify-between">
+<!-- Line Background -->
+<div class="absolute top-5 left-0 w-full h-[2px] bg-surface-container-highest -z-0"></div>
+<!-- Active Progress Line -->
+<div class="absolute top-5 left-0 w-3/4 h-[2px] bg-primary -z-0 transition-all duration-1000"></div>
+<!-- Step 1 -->
+<div class="relative flex flex-col items-center gap-3 z-10">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Order Placed</span>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col items-center gap-3 z-10">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Packing</span>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col items-center gap-3 z-10">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-md ring-4 ring-primary-container">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Out for Delivery</span>
+</div>
+<!-- Step 4 -->
+<div class="relative flex flex-col items-center gap-3 z-10 opacity-40">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Delivered</span>
+</div>
+</div>
+</div>
+<!-- Map Simulation -->
+<div class="relative h-[350px] w-full bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 opacity-40 grayscale pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist vector-style city map showing streets and urban blocks in Dhaka, rendered in a soft monochromatic palette of light grays and whites, following a professional corporate design aesthetic." data-location="Dhaka" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6CD9t_Utv9Cb24TQIGYX1w4aRaFLoZXvqsYgPIokonpnbepaFLKGSDXBosm6vN9HySrRVq6HuMLj0R-m0tS3laemcJYvmV3d3ymCNJaQzc-F1JfG6Wa4b2bjhnCBB7Upz2Q8nx-LlwhoQWq9EZ0qroHf7K6G_yh6kZ39UJKtcIDUZlvW4wIFcdH_IMTabd0A9zYH5EGDe2vnlR-4xllyC9lvf9TPEp2LXHhPkkizhrw3Qzj3gtnElkV4f-Ha-5NdZXgh00AiHuuvX"/>
+</div>
+<!-- Map Marker 1 (Home) -->
+<div class="absolute top-1/4 left-1/3 flex flex-col items-center">
+<div class="bg-white p-1 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-on-surface text-[24px]">home</span>
+</div>
+<div class="bg-on-surface text-white text-[10px] px-2 py-0.5 rounded mt-1 font-bold">HOME</div>
+</div>
+<!-- Map Marker 2 (Delivery Rider) -->
+<div class="absolute top-2/3 right-1/4 flex flex-col items-center pulse-marker">
+<div class="bg-primary p-2 rounded-full shadow-xl">
+<span class="material-symbols-outlined text-white text-[24px]">moped</span>
+</div>
+<div class="bg-primary text-white text-[10px] px-2 py-0.5 rounded mt-1 font-bold">ASIF (RIDER)</div>
+</div>
+<!-- Mini Info Overlay -->
+<div class="absolute bottom-6 left-6 right-6 glass-panel rounded-xl p-4 border border-white/50 flex items-center justify-between shadow-lg">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover ring-2 ring-white" data-alt="Portrait of a friendly male delivery professional wearing a clean corporate green polo shirt, smiling at the camera, high-key studio lighting with a soft blurred background for a professional trust-focused look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZYlxE23PajhpwLJvZwM3OXXxZXYV82nZ2E-D-cXJtJ01zhbyJTxnlqhY4DTtCYUMDQX48gqbKP2j98n5XM1bLvqtzpfsHQb85mBtCuwAwcu68AYrTe-GV4lu3zDVrgcEmsgMt_53hrUUwW2V3lZvWlnw1-2f2Aeg9qhOQOPAs1eJE1UUNCQC8aQfE5qyt6bcmA6ptxAJtUAdPhqJwt8HmJqzlOcufAfesnjlLmpThjEKC_wYDAJmS3oOOxKLr7LW-i_2XPvVjVHOs"/>
+<div>
+<p class="font-headline-md text-label-md text-on-surface">Asif Hossain</p>
+<p class="text-label-sm text-on-surface-variant">Rider ID: #R992 | ⭐ 4.9</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary transition-colors hover:text-white">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary transition-colors hover:text-white">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary & Actions -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface border border-border-subtle rounded-xl p-6 shadow-sm">
+<h3 class="font-headline-md text-headline-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+                            Order Summary
+                        </h3>
+<ul class="space-y-3">
+<li class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Fresh Organic Tomatoes (1kg)</span>
+<span class="font-bold">৳ 120</span>
+</li>
+<li class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Premium Basmati Rice (5kg)</span>
+<span class="font-bold">৳ 950</span>
+</li>
+<li class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Deshi Farm Eggs (12 pcs)</span>
+<span class="font-bold">৳ 160</span>
+</li>
+<li class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Honey Gold Banana (6 pcs)</span>
+<span class="font-bold">৳ 80</span>
+</li>
+<li class="border-t border-border-subtle pt-3 flex justify-between font-bold text-headline-md text-primary">
+<span>Total (Incl. Tax)</span>
+<span>৳ 1,450.00</span>
+</li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<div class="bg-error-container/20 border border-error/20 rounded-xl p-6">
+<h3 class="font-headline-md text-headline-md text-error mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined">assignment_return</span>
+                                Issues with delivery?
+                            </h3>
+<p class="text-label-md text-on-surface-variant mb-4 leading-relaxed">If items are damaged or missing, you can request a refund directly from the rider or through this panel.</p>
+<button class="w-full py-3 bg-white border-2 border-error text-error rounded-lg font-bold hover:bg-error hover:text-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+                                Refund/Return Items
+                            </button>
+</div>
+<div class="bg-secondary-fixed text-on-secondary-fixed rounded-xl p-6 flex items-center justify-between">
+<div>
+<p class="font-bold">Delivery Insurance</p>
+<p class="text-label-sm">Active for this order</p>
+</div>
+<span class="material-symbols-outlined text-[32px] text-secondary">verified_user</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Support Chat Widget (Sticky/FAB) -->
+<div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4">
+<div class="hidden w-80 bg-white shadow-2xl rounded-2xl border border-border-subtle overflow-hidden flex flex-col transition-all transform scale-95 opacity-0 origin-bottom-right" id="chat-popup">
+<div class="bg-primary p-4 text-white flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="w-8 h-8 rounded-full border border-white/50" data-alt="Portrait of a friendly female customer support representative with professional lighting, a neutral gray background, and a warm, trustworthy expression in line with a corporate modern design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6wJPBl91i6ord9uSNhZeiVq995N4J_L6rnHHqbepAlRqguk3PpZaDnYah2g_l_v8RNFeGmbiXL1vdawkYXhWZeWH9xqrY6XYhzagHaxDmU19nQ1HApnH3w6F7D-yvjKbecR7mSrIjjot9Qp0uzCS5j5fYk-WvS1-Be0OqfjlMmM9IpbrR_Wv3ZFZhuHLKi14tyttPiSqVVaqa-e61yS9XmytA_l9E7UiDC0igfczxK7jscMhaJ_rRWrqcMNEtGdforHszqehqMiLJ"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-success-green border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="font-bold text-label-md">Support: Sarah</p>
+<p class="text-[10px] opacity-80">Typically replies in 2 mins</p>
+</div>
+</div>
+<button class="material-symbols-outlined" onclick="toggleChat()">close</button>
+</div>
+<div class="h-64 p-4 bg-surface-container-lowest overflow-y-auto flex flex-col gap-3">
+<div class="bg-surface-container-high p-3 rounded-xl rounded-tl-none text-body-md self-start max-w-[85%]">
+                    Hello! I'm Sarah. How can I help you with Order #FA-88219 today?
+                </div>
+<div class="bg-primary text-white p-3 rounded-xl rounded-tr-none text-body-md self-end max-w-[85%]">
+                    Hi, is the rider already nearby?
+                </div>
+</div>
+<div class="p-4 border-t border-border-subtle flex gap-2">
+<input class="flex-1 bg-surface-container-low border-none rounded-lg text-body-md focus:ring-2 focus:ring-primary" placeholder="Type a message..." type="text"/>
+<button class="bg-primary text-white p-2 rounded-lg">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+<button class="w-16 h-16 bg-primary text-white rounded-full shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all" onclick="toggleChat()">
+<span class="material-symbols-outlined text-[32px]">support_agent</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-border-subtle mt-12">
+<div class="w-full py-12 px-margin-desktop max-w-container-max-width mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-4">Fresh Agro</div>
+<p class="text-on-surface-variant text-body-md leading-relaxed">
+                    © 2024 Fresh Agro. Empowering local farmers, nourishing communities.
+                </p>
+</div>
+<div>
+<h4 class="font-bold mb-4">Quick Links</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="text-on-surface-variant hover:text-secondary underline transition-all text-label-sm" href="#">Support Center</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary underline transition-all text-label-sm" href="#">Refund Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary underline transition-all text-label-sm" href="#">Delivery Info</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Partner</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="text-on-surface-variant hover:text-secondary underline transition-all text-label-sm" href="#">Become a Partner</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary underline transition-all text-label-sm" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Download App</h4>
+<div class="flex flex-col gap-3">
+<div class="h-10 bg-on-surface rounded-lg flex items-center justify-center px-4 gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-white text-[20px]">apps</span>
+<span class="text-white text-[12px] font-bold">App Store</span>
+</div>
+<div class="h-10 bg-on-surface rounded-lg flex items-center justify-center px-4 gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-white text-[20px]">shop</span>
+<span class="text-white text-[12px] font-bold">Google Play</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleChat() {
+            const popup = document.getElementById('chat-popup');
+            if (popup.classList.contains('hidden')) {
+                popup.classList.remove('hidden');
+                setTimeout(() => {
+                    popup.classList.add('scale-100', 'opacity-100');
+                    popup.classList.remove('scale-95', 'opacity-0');
+                }, 10);
+            } else {
+                popup.classList.add('scale-95', 'opacity-0');
+                popup.classList.remove('scale-100', 'opacity-100');
+                setTimeout(() => popup.classList.add('hidden'), 300);
+            }
+        }
+    </script>
+</body></html>

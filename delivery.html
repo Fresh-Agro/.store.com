@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | Fresh Agro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "success-green": "#2E7D32",
+                        "on-primary-fixed": "#002204",
+                        "tertiary-container": "#b14b6f",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7f2448",
+                        "on-secondary-fixed-variant": "#693c00",
+                        "primary-fixed": "#a3f69c",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "error": "#ba1a1a",
+                        "tertiary": "#923357",
+                        "on-tertiary-fixed": "#3f001c",
+                        "on-secondary-fixed": "#2c1600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#653900",
+                        "tertiary-fixed": "#ffd9e2",
+                        "outline-variant": "#bfcaba",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-alt": "#F5F5F5",
+                        "surface-tint": "#1b6d24",
+                        "outline": "#707a6c",
+                        "border-subtle": "#E0E0E0",
+                        "on-surface": "#1b1c1c",
+                        "inverse-primary": "#88d982",
+                        "surface-variant": "#e5e2e1",
+                        "inverse-surface": "#303030",
+                        "primary": "#0d631b",
+                        "on-primary-container": "#cbffc2",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#ff9800",
+                        "on-surface-variant": "#40493d",
+                        "tertiary-fixed-dim": "#ffb1c7",
+                        "bengali-text": "#424242",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-fixed-variant": "#005312",
+                        "primary-fixed-dim": "#88d982",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed": "#ffdcbe",
+                        "secondary-fixed-dim": "#ffb870",
+                        "background": "#fcf9f8",
+                        "on-tertiary": "#ffffff",
+                        "warning-orange": "#FF9800",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#ffedf0",
+                        "surface-container": "#f0eded",
+                        "error-container": "#ffdad6",
+                        "surface": "#fcf9f8",
+                        "secondary": "#8b5000",
+                        "surface-dim": "#dcd9d9",
+                        "on-background": "#1b1c1c",
+                        "primary-container": "#2e7d32"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-width": "1280px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl-mobile": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .step-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hide-step {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .show-step {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-surface-alt font-body-md text-on-surface">
+<!-- TopNavBar (Minimal for Checkout) -->
+<nav class="bg-surface dark:bg-surface-dim shadow-sm dark:shadow-none border-b border-border-subtle dark:border-outline-variant fixed top-0 w-full z-50 h-20">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max-width mx-auto h-full">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 group" href="/">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="arrow_back">arrow_back</span>
+<span class="font-headline-lg text-headline-lg font-bold text-primary dark:text-inverse-primary">Fresh Agro</span>
+</a>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+<span class="font-label-md text-label-md">Secure Checkout</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help_outline">help_outline</span>
+</div>
+</div>
+</nav>
+<main class="pt-28 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Multi-step Flow -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Progress Stepper -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-border-subtle flex justify-between items-center mb-8 overflow-x-auto">
+<div class="flex items-center gap-3 min-w-fit" id="step-indicator-1">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+<span class="font-label-md text-label-md text-primary">Shipping</span>
+</div>
+<div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
+<div class="flex items-center gap-3 min-w-fit" id="step-indicator-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">2</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Schedule</span>
+</div>
+<div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
+<div class="flex items-center gap-3 min-w-fit" id="step-indicator-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">3</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Summary</span>
+</div>
+<div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
+<div class="flex items-center gap-3 min-w-fit" id="step-indicator-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">4</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Payment</span>
+</div>
+</div>
+<!-- STEP 1: Shipping Address -->
+<section class="step-transition show-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-1">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<h2 class="font-headline-lg text-headline-lg">Where should we deliver?</h2>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">District</label>
+<select class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary">
+<option>Dhaka</option>
+<option>Chattogram</option>
+<option>Sylhet</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Area</label>
+<input class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="e.g. Dhanmondi, Banani" type="text"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Road Name / Number</label>
+<input class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="Enter road details" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">House / Apartment No.</label>
+<input class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="Flat 4B, House 23" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Phone Number</label>
+<div class="flex">
+<span class="bg-surface-container-high border border-r-0 border-border-subtle rounded-l-lg px-3 flex items-center text-on-surface-variant">+880</span>
+<input class="w-full border-border-subtle rounded-r-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="1XXX XXXXXX" type="tel"/>
+</div>
+</div>
+</form>
+<div class="mt-10 flex justify-end">
+<button class="bg-primary hover:bg-primary-container text-white hover:text-on-primary-container px-8 py-3 rounded-lg font-bold transition-all flex items-center gap-2 group" onclick="goToStep(2)">
+                            Next: Delivery Schedule
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- STEP 2: Delivery Scheduling -->
+<section class="step-transition hide-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-2">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<h2 class="font-headline-lg text-headline-lg">Choose delivery slot</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<button class="p-6 border-2 border-primary bg-primary-container/10 rounded-xl text-left flex flex-col gap-2 relative">
+<div class="absolute top-4 right-4 bg-primary text-white p-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<span class="bg-warning-orange text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded w-fit">Fastest</span>
+<span class="font-headline-md text-headline-md">Express Delivery</span>
+<span class="text-on-surface-variant font-body-md">Delivery in 60 mins</span>
+<span class="font-bold text-primary mt-2">Tk 60</span>
+</button>
+<button class="p-6 border border-border-subtle hover:border-primary bg-white rounded-xl text-left flex flex-col gap-2 transition-colors group">
+<span class="font-headline-md text-headline-md group-hover:text-primary">Today Afternoon</span>
+<span class="text-on-surface-variant font-body-md">2:00 PM - 5:00 PM</span>
+<span class="font-bold text-on-surface mt-2">Tk 30</span>
+</button>
+<button class="p-6 border border-border-subtle hover:border-primary bg-white rounded-xl text-left flex flex-col gap-2 transition-colors group">
+<span class="font-headline-md text-headline-md group-hover:text-primary">Tomorrow Morning</span>
+<span class="text-on-surface-variant font-body-md">9:00 AM - 12:00 PM</span>
+<span class="font-bold text-on-surface mt-2">Tk 30</span>
+</button>
+<button class="p-6 border border-border-subtle hover:border-primary bg-white rounded-xl text-left flex flex-col gap-2 transition-colors group">
+<span class="font-headline-md text-headline-md group-hover:text-primary">Tomorrow Evening</span>
+<span class="text-on-surface-variant font-body-md">6:00 PM - 9:00 PM</span>
+<span class="font-bold text-on-surface mt-2">Tk 30</span>
+</button>
+</div>
+<div class="mt-10 flex justify-between">
+<button class="text-on-surface-variant hover:text-primary font-bold px-4 py-3 flex items-center gap-2" onclick="goToStep(1)">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                            Back
+                        </button>
+<button class="bg-primary hover:bg-primary-container text-white hover:text-on-primary-container px-8 py-3 rounded-lg font-bold transition-all flex items-center gap-2 group" onclick="goToStep(3)">
+                            Next: Order Summary
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- STEP 3: Order Summary -->
+<section class="step-transition hide-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-3">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_basket">shopping_basket</span>
+<h2 class="font-headline-lg text-headline-lg">Review your items</h2>
+</div>
+<div class="space-y-4 mb-8">
+<!-- Product Item -->
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg">
+<img alt="Fresh Tomatoes" class="w-16 h-16 object-cover rounded-lg" data-alt="Close up professional studio photography of vibrant red ripe organic vine tomatoes on a clean white background. High contrast lighting accentuates the dew drops on the smooth skin. The aesthetic is ultra-fresh and healthy, using a minimalist farm-to-table commercial style with a natural green stem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4P76DA938zT5FoWgDelQi4GNMpl1NA0V52sG_zffYCF-5WW78FuwrnUvEYq0FvilQM_VLNTWxnQlGo9VrEPDc801s6XC11P44-WsQ0ftyqeZMMxNIJHmioNOF2fAsLuwAUzKSwva0t6fyZNUe2WINf8OcCMjPddGpW58ivFUBgWd3xnSdrgs6pnsdAo_k07GrOCTtn0wfN0Z0kzGKXe9R7hHODJlfRQ8o2U0H0MOoHS3ybeJZFZbjmH31zxf_ZsJxMqcCLh2samLH"/>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md">Organic Vine Tomatoes</h4>
+<p class="text-on-surface-variant text-label-sm">1kg x 2</p>
+</div>
+<span class="font-bold">Tk 240</span>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg">
+<img alt="Brown Eggs" class="w-16 h-16 object-cover rounded-lg" data-alt="Professional studio shot of a rustic basket filled with high-quality organic farm-fresh brown eggs. The lighting is soft and warm, casting gentle shadows to create a tactile and artisanal feel. The color palette consists of natural earth tones, beige, and cream, emphasizing purity and high-protein nutrition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgx9Iu6tNtouwjUlMpVVqun6S0O3okC1zG-Kl9qlZCdlaD2vHB9Jym4DfFcU83Am7S4ZPHib-iHC-yhyT-ga7TopIdDwsIb0tDT_5i8uwmoFwruy5l8bwaRYC1JuKztLe6huI9QZ0HnqHpst9jv8dOy_Frd-EZstsPixZ-CKz5p8Qfj9hEhQhZEjgr3HKkWU21W-U9OYg3dRI6ptnqQ0HjWzwcdTnHb2tPHwaon30HnvVyvqym_0dGiLiiYN3auBjNnAczqlUr8TnS"/>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md">Farm-Fresh Brown Eggs</h4>
+<p class="text-on-surface-variant text-label-sm">12 pcs x 1</p>
+</div>
+<span class="font-bold">Tk 155</span>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg border-2 border-dashed border-primary/20">
+<div class="w-16 h-16 bg-primary-container/20 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-primary">Free Shipping Unlocked!</h4>
+<p class="text-on-surface-variant text-label-sm">Your order is over Tk 1500</p>
+</div>
+<span class="font-bold text-success-green">Tk 0</span>
+</div>
+</div>
+<div class="mt-10 flex justify-between">
+<button class="text-on-surface-variant hover:text-primary font-bold px-4 py-3 flex items-center gap-2" onclick="goToStep(2)">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                            Back
+                        </button>
+<button class="bg-primary hover:bg-primary-container text-white hover:text-on-primary-container px-8 py-3 rounded-lg font-bold transition-all flex items-center gap-2 group" onclick="goToStep(4)">
+                            Next: Payment Method
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- STEP 4: Payment Selection -->
+<section class="step-transition hide-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-4">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+<h2 class="font-headline-lg text-headline-lg">Select Payment Method</h2>
+</div>
+<div class="space-y-4">
+<label class="flex items-center justify-between p-5 border border-primary bg-primary-container/5 rounded-xl cursor-pointer group">
+<div class="flex items-center gap-4">
+<input checked="" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary" name="payment" type="radio"/>
+<div>
+<h4 class="font-headline-md text-headline-md">Cash on Delivery</h4>
+<p class="text-on-surface-variant text-label-sm">Pay when you receive the fresh items</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="handshake">handshake</span>
+</label>
+<label class="flex items-center justify-between p-5 border border-border-subtle hover:border-primary rounded-xl cursor-pointer group transition-all">
+<div class="flex items-center gap-4">
+<input class="w-5 h-5 text-primary border-border-subtle focus:ring-primary" name="payment" type="radio"/>
+<div class="flex items-center gap-3">
+<div class="w-12 h-8 bg-[#E2136E] rounded flex items-center justify-center font-bold text-white text-[10px]">bKash</div>
+<h4 class="font-headline-md text-headline-md">bKash Payment</h4>
+</div>
+</div>
+</label>
+<label class="flex items-center justify-between p-5 border border-border-subtle hover:border-primary rounded-xl cursor-pointer group transition-all">
+<div class="flex items-center gap-4">
+<input class="w-5 h-5 text-primary border-border-subtle focus:ring-primary" name="payment" type="radio"/>
+<div class="flex items-center gap-3">
+<div class="w-12 h-8 bg-[#F15A22] rounded flex items-center justify-center font-bold text-white text-[10px]">Nagad</div>
+<h4 class="font-headline-md text-headline-md">Nagad Wallet</h4>
+</div>
+</div>
+</label>
+<label class="flex items-center justify-between p-5 border border-border-subtle hover:border-primary rounded-xl cursor-pointer group transition-all">
+<div class="flex items-center gap-4">
+<input class="w-5 h-5 text-primary border-border-subtle focus:ring-primary" name="payment" type="radio"/>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="credit_card">credit_card</span>
+<h4 class="font-headline-md text-headline-md">Credit / Debit Card</h4>
+</div>
+</div>
+</label>
+</div>
+<div class="mt-10 flex justify-between items-center">
+<button class="text-on-surface-variant hover:text-primary font-bold px-4 py-3 flex items-center gap-2" onclick="goToStep(3)">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                            Back
+                        </button>
+<button class="bg-secondary hover:bg-secondary-container text-white px-10 py-4 rounded-lg font-bold text-headline-md shadow-lg transform hover:scale-[1.02] active:scale-95 transition-all">
+                            Place Order (Tk 1,745)
+                        </button>
+</div>
+</section>
+</div>
+<!-- Right Column: Cart Totals Sticky -->
+<div class="lg:col-span-4 sticky top-28">
+<div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm">
+<div class="p-6 border-b border-border-subtle bg-surface-container-lowest">
+<h3 class="font-headline-lg text-headline-lg">Order Summary</h3>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal (4 items)</span>
+<span>Tk 1,745</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Delivery Fee</span>
+<span class="line-through">Tk 60</span>
+</div>
+<div class="flex justify-between text-success-green font-bold">
+<span>Free Delivery Promo</span>
+<span>- Tk 60</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Service Charge</span>
+<span>Tk 0</span>
+</div>
+<div class="pt-4 border-t border-border-subtle flex justify-between items-end">
+<div>
+<span class="text-on-surface-variant text-label-md">Total Payable</span>
+<div class="font-headline-xl text-headline-xl text-primary">Tk 1,745</div>
+</div>
+<span class="text-label-sm text-on-surface-variant mb-2 italic">Prices inclusive of VAT</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-border-subtle">
+<div class="flex gap-2 p-3 bg-white border border-border-subtle rounded-lg mb-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="confirmation_number">confirmation_number</span>
+<input class="bg-transparent border-none focus:ring-0 w-full p-0 text-sm" placeholder="Promo Code" type="text"/>
+<button class="text-primary font-bold text-sm">Apply</button>
+</div>
+<p class="text-label-sm text-on-surface-variant flex gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+                            100% Satisfaction Guarantee. Hassle-free returns if any quality issue.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Minimal for Checkout) -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-high border-t border-border-subtle py-12">
+<div class="w-full px-margin-desktop max-w-container-max-width mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary mb-2">Fresh Agro</h2>
+<p class="text-on-surface-variant font-body-md">Empowering local farmers, nourishing communities.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-all underline text-label-sm" href="#">Refund Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-all underline text-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-all underline text-label-sm" href="#">Support Center</a>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-border-subtle text-center text-on-surface-variant text-label-sm">
+                © 2024 Fresh Agro. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        function goToStep(stepNumber) {
+            // Hide all steps
+            const steps = [1, 2, 3, 4];
+            steps.forEach(s => {
+                const stepEl = document.getElementById(`step-${s}`);
+                const indicatorEl = document.getElementById(`step-indicator-${s}`);
+                
+                stepEl.classList.add('hide-step');
+                stepEl.classList.remove('show-step');
+
+                // Update indicator styling
+                const circle = indicatorEl.querySelector('div');
+                const label = indicatorEl.querySelector('span');
+
+                if (s < stepNumber) {
+                    // Completed steps
+                    circle.classList.remove('bg-primary', 'bg-surface-container-high');
+                    circle.classList.add('bg-success-green');
+                    circle.innerHTML = '<span class="material-symbols-outlined">check</span>';
+                    label.classList.add('text-success-green');
+                    label.classList.remove('text-primary', 'text-on-surface-variant');
+                } else if (s === stepNumber) {
+                    // Active step
+                    circle.classList.add('bg-primary');
+                    circle.classList.remove('bg-surface-container-high', 'bg-success-green');
+                    circle.innerHTML = s;
+                    label.classList.add('text-primary');
+                    label.classList.remove('text-on-surface-variant', 'text-success-green');
+                } else {
+                    // Future steps
+                    circle.classList.add('bg-surface-container-high');
+                    circle.classList.remove('bg-primary', 'bg-success-green');
+                    circle.innerHTML = s;
+                    label.classList.add('text-on-surface-variant');
+                    label.classList.remove('text-primary', 'text-success-green');
+                }
+            });
+
+            // Show current step
+            const currentStep = document.getElementById(`step-${stepNumber}`);
+            currentStep.classList.remove('hide-step');
+            setTimeout(() => {
+                currentStep.classList.add('show-step');
+            }, 50);
+
+            // Scroll to top of flow on mobile
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body></html>
